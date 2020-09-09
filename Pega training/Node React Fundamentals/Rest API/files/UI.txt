@@ -1,0 +1,26 @@
+HTML
+-->readOnly elements
+-->datacollection elements
+-->block level elements
+CSS
+-->styling types-tag,class,id,inline
+JS
+-->scopes-local,global
+-->variable hoisting
+-->Asynchronous programmimg
+-->callbacks
+-->promises
+-->classes
+-->objects
+-->fuctions
+-->arrays
+NODE JS
+-->applications
+-->how it works?
+-->architecture
+-->blocking,nonblocking requests and eventqueue
+-->exporting functions to other files
+-->File operations
+-->creating a webapp
+
+-->REST API
