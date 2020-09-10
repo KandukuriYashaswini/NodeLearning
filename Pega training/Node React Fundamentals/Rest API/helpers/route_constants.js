@@ -4,5 +4,6 @@ module.exports.ROUTE_CONSTANTS={
     GET_LOGIN:"/login",
     GET_REGISTER:"/register",
     GET_FILE:"/file",
-    POST_REGISTER:"/register"
+    POST_REGISTER:"/register",
+    GET_COUNTRIES:"/countryList"
 }

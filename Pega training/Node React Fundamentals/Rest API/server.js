@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser')
+const asyncRequest= require('async-request')
 const { ROUTE_CONSTANTS } = require('./helpers/route_constants');
 const app = express();
+const countryListUrl="https://restcountries.eu/rest/v2/all";
 
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
@@ -9,7 +11,19 @@ app.use(bodyParser.json())
 app.get(ROUTE_CONSTANTS.DEFAULT,function (req,res){
     res.send("<h1>Welcome to Pega");
 });
+app.get(ROUTE_CONSTANTS.GET_FILE,function(req,res){
+  res.sendFile(__dirname+"./files/UI.txt");
+});
+app.get(ROUTE_CONSTANTS.GET_COUNTRIES,async function(req,res){
+try{
+const response= await asyncRequest(countryListUrl);
+res.json(response);
+}
 
+catch(err){
+  res.json(err);
+}
+});
 app.get(ROUTE_CONSTANTS.GET_LOGIN,function (req,res){
     res.sendFile(__dirname+'/pages/login.html');
 });
@@ -344,7 +358,8 @@ app.get(ROUTE_CONSTANTS.GET_PRODUCTS,function (req,res){
     ]
     res.json(productsData);
 });
-app.get(ROUTE_CONSTANTS.GET_FILE,function(req,res){
-    res.sendFile(__dirname+"./files/UI.txt");
-});
+
+  
+
+
 app.listen(3000); 
