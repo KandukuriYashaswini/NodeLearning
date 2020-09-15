@@ -1,18 +1,24 @@
-import React from 'react';
-import Header from './components/Header'
-import Footer from './components/Footer'
-import { LoginComponent } from './components/Login';
-import { RegisterComponent } from './components/Register';
+import React,{Component} from 'react';
+import Header from './components/Header';
+import ProductList from './components/ProductList';
 //this is called pure component or stateless component
-const App = ()=>{
-    const companyName='Pega Systems';
+export class App extends Component{
+  constructor(){
+    super();
+    this.state={
+      companyName:"",
+      cartCount:0
+    }
+  }
+
+   render(){
   return <div>
-      <Header title={companyName} />
+      <Header title={this.state.companyName} 
+      cartCount={this.state.cartCount} />
       <h1>Welcome to pega</h1>
-      <Footer />
-      <LoginComponent />
-      <RegisterComponent />
+      <ProductList handleCLick={this.handleClick}/>
       </div>;
+   }
 };
 
 export default App;

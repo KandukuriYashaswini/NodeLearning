@@ -15,14 +15,10 @@ app.get(ROUTE_CONSTANTS.GET_FILE,function(req,res){
   res.sendFile(__dirname+"./files/UI.txt");
 });
 app.get(ROUTE_CONSTANTS.GET_COUNTRIES,async function(req,res){
-try{
 const response= await asyncRequest(countryListUrl);
 res.json(response);
-}
 
-catch(err){
-  res.json(err);
-}
+
 });
 app.get(ROUTE_CONSTANTS.GET_LOGIN,function (req,res){
     res.sendFile(__dirname+'/pages/login.html');
